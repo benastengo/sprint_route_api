@@ -1,0 +1,29 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDY1MTU4NDN9.7J-Aew3_ke1zQizywUEPgU6Pu1mg9q7rX7JLhesm-lA
+@domain = http://localhost:3000
+### Users create (signup)
+POST {{ domain }}/users
+Content-Type: application/json
+
+{
+  "first_name": "Ben",
+  "last_name": "Astengo",
+  "tractor_number":
+  1426,
+  "trailer_number":
+  14531,
+  "manager": false,
+  "location":
+  "Granger",
+  "email": "astengo93@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST {{ domain }}/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
