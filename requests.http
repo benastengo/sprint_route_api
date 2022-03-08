@@ -53,3 +53,17 @@ Authorization: Bearer {{ jwt }}
   "name": "Kwik Star 1068",
   "address": "1704 Broad Street, Story City, Ia 50248"
 }
+
+### Order create
+POST {{ domain }}/orders
+Content-Type: application/json
+
+{
+  "user_id": 2,
+  "customer_id": 3,
+  "blend": "87 E",
+  "volume": 8500,
+  "day": "April 25th, 2022",
+  "fulfilled": "false",
+  "preferred_window": null
+}

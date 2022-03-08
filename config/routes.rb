@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "/customers" => "customers#index"
   get "/customers/:id" => "customers#show"
   post "/customers" => "customers#create"
+
+  get "/orders" => "orders#index"
+  post "/orders" => "orders#create"
   
   post "/sessions" => "sessions#create"
 end
