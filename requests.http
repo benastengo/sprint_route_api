@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDY1MTU4NDN9.7J-Aew3_ke1zQizywUEPgU6Pu1mg9q7rX7JLhesm-lA
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDY3ODY2MDJ9.AsCnpwj0MV0P1U9xT-b0o4M0j6OQL_CbDdcQSoF2kKo
 @domain = http://localhost:3000
 ### Users create (signup)
 POST {{ domain }}/users
@@ -24,6 +24,32 @@ POST {{ domain }}/sessions
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "astengo93@gmail.com",
   "password": "password"
+}
+
+### User update
+PATCH {{ domain }}/users/2
+Authorization: Bearer {{ jwt }}
+Content-Type: application/json
+
+{
+  "first_name": "Benjamin"
+}
+
+### User Destroy
+DELETE {{domain}}/users/7
+Authorization: Bearer {{ jwt }}
+
+### Customer Index
+GET {{ domain }}/customers
+Authorization: Bearer {{ jwt }}
+### Customers create (signup)
+POST {{ domain }}/customers
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "name": "Kwik Star 1068",
+  "address": "1704 Broad Street, Story City, Ia 50248"
 }

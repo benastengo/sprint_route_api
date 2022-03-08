@@ -1,4 +1,16 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user
+
+  def index
+    users = User.all
+    render json: users
+  end
+
+  def show
+    user = User.find(params[:id])
+    render json: user
+  end
+
   def create
     user = User.new(
       first_name: params[:first_name],
@@ -16,5 +28,25 @@ class UsersController < ApplicationController
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.first_name = params[:first_name] || user.first_name
+    user.last_name = params[:last_name] || user.last_name
+    user.tractor_number = params[:tractor_number] || user.tractor_number
+    user.trailer_number = params[:trailer_number] || user.trailer_number
+    user.manager = params[:manager] || user.manager
+    user.location = params[:location] || user.location
+    user.email = params[:email] || user.email
+    user.password = params[:password] || user.password
+    user.password_confirmation = params[:password_confirmation] || user.password_confirmation
+    render json: user
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.delete
+    render json: { message: "User destroyed successfully"}
   end
 end
