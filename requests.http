@@ -57,6 +57,7 @@ Authorization: Bearer {{ jwt }}
 ### Order create
 POST {{ domain }}/orders
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
   "user_id": 2,
@@ -67,3 +68,16 @@ Content-Type: application/json
   "fulfilled": "false",
   "preferred_window": null
 }
+
+### Order Update
+POST {{ domain }}/orders/1
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "blend": "87 C"
+}
+
+### Order Destroy
+DELETE {{ domain }}/orders/6
+Authorization: Bearer {{ jwt }}
