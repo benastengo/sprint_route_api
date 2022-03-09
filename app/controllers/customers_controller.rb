@@ -12,14 +12,16 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.new(
-      name: params[:name],
-      address: params[:address]
-    )
-    if customer.save
-      render json: { message: "Customer created successfully" }, status: :created
-    else
-      render json: { errors: customer.errors.full_messages }, status: :bad_request
+    if current_user.manager == true
+      customer = Customer.new(
+        name: params[:name],
+        address: params[:address]
+      )
+      if customer.save
+        render json: { message: "Customer created successfully" }, status: :created
+      else
+        render json: { errors: customer.errors.full_messages }, status: :bad_request
+      end
     end
   end
 end

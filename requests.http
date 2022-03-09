@@ -1,5 +1,11 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDY3ODY2MDJ9.AsCnpwj0MV0P1U9xT-b0o4M0j6OQL_CbDdcQSoF2kKo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDY4ODUyNzV9.ORP6fX6261_xdTXTZdBwiIuJhxQPW_pFnV0I4U59Bdc
 @domain = http://localhost:3000
+
+### Users Index
+GET {{ domain }}/users
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
 ### Users create (signup)
 POST {{ domain }}/users
 Content-Type: application/json
@@ -24,7 +30,7 @@ POST {{ domain }}/sessions
 Content-Type: application/json
 
 {
-  "email": "astengo93@gmail.com",
+  "email": "dale@gmail.com",
   "password": "password"
 }
 
@@ -34,7 +40,7 @@ Authorization: Bearer {{ jwt }}
 Content-Type: application/json
 
 {
-  "first_name": "Benjamin"
+  "first_name": "Ben"
 }
 
 ### User Destroy
@@ -75,9 +81,9 @@ Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
 {
-  "blend": "87 C"
+  "blend": "87 E"
 }
 
 ### Order Destroy
-DELETE {{ domain }}/orders/6
+DELETE {{ domain }}/orders/7
 Authorization: Bearer {{ jwt }}
