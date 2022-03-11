@@ -8,20 +8,22 @@ class CustomersController < ApplicationController
 
   def show
     customer = Customer.find(params[:id])
-    render json: customer
+    render json: customer, orders: [:everything, :but, :customer]
   end
 
   def create
-    if current_user.manager == true
+    if current_user.manager
       customer = Customer.new(
         name: params[:name],
         address: params[:address]
       )
       if customer.save
-        render json: { message: "Customer created successfully" }, status: :created
+        render json: customer, status: :created
       else
         render json: { errors: customer.errors.full_messages }, status: :bad_request
       end
+    else
+      render json: {}, status: :unauthorized
     end
   end
 end

@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDY4ODUyNzV9.ORP6fX6261_xdTXTZdBwiIuJhxQPW_pFnV0I4U59Bdc
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDcwNDQzNzJ9.4kwbFtxOlWG_cbsMvGj-gcwOwncIUrJW7LNgHFwGi3M
 @domain = http://localhost:3000
 
 ### Users Index
@@ -6,21 +6,27 @@ GET {{ domain }}/users
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
+### Users Show
+GET {{ domain }}/users/2
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
 ### Users create (signup)
 POST {{ domain }}/users
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "first_name": "Ben",
-  "last_name": "Astengo",
+  "first_name": "Jim",
+  "last_name": "Bob",
   "tractor_number":
-  1426,
+  1428,
   "trailer_number":
-  14531,
+  14533,
   "manager": false,
   "location":
   "Granger",
-  "email": "astengo93@gmail.com",
+  "email": "astengo03@gmail.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -34,6 +40,7 @@ Content-Type: application/json
   "password": "password"
 }
 
+
 ### User update
 PATCH {{ domain }}/users/2
 Authorization: Bearer {{ jwt }}
@@ -44,12 +51,18 @@ Content-Type: application/json
 }
 
 ### User Destroy
-DELETE {{domain}}/users/7
+DELETE {{domain}}/users/9
 Authorization: Bearer {{ jwt }}
 
 ### Customer Index
 GET {{ domain }}/customers
 Authorization: Bearer {{ jwt }}
+
+### Customer Show
+GET {{ domain }}/customers/3
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
 ### Customers create (signup)
 POST {{ domain }}/customers
 Content-Type: application/json
@@ -60,17 +73,21 @@ Authorization: Bearer {{ jwt }}
   "address": "1704 Broad Street, Story City, Ia 50248"
 }
 
-### Order create
-POST {{ domain }}/orders
+### Orders Index
+GET {{ domain }}/orders
 Content-Type: application/json
 Authorization: Bearer {{ jwt }}
 
+### Order create
+POST {{ domain }}/orders
+Content-Type: application/json
+# Authorization: Bearer {{ jwt }}
+
 {
-  "user_id": 2,
-  "customer_id": 3,
+  "customer_id": 2 ,
   "blend": "87 E",
   "volume": 8500,
-  "day": "April 25th, 2022",
+  "day": "April 28th, 2022",
   "fulfilled": "false",
   "preferred_window": null
 }
@@ -78,12 +95,13 @@ Authorization: Bearer {{ jwt }}
 ### Order Update
 POST {{ domain }}/orders/1
 Content-Type: application/json
-Authorization: Bearer {{ jwt }}
+# Authorization: Bearer {{ jwt }}
 
 {
-  "blend": "87 E"
+  "customer_id": 1,
+  "blend": "87 C"
 }
 
 ### Order Destroy
-DELETE {{ domain }}/orders/7
-Authorization: Bearer {{ jwt }}
+DELETE {{ domain }}/orders/7?customer_id=4
+# Authorization: Bearer {{ jwt }}

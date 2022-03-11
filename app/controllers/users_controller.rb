@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    if current_user.manager == true
+    if current_user.manager
       users = User.all
       render json: users
     end
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    render json: user
+    render json: user, include: ["orders.customer"]
   end
 
   def create
@@ -38,11 +38,8 @@ class UsersController < ApplicationController
     user.last_name = params[:last_name] || user.last_name
     user.tractor_number = params[:tractor_number] || user.tractor_number
     user.trailer_number = params[:trailer_number] || user.trailer_number
-    user.manager = params[:manager] || user.manager
     user.location = params[:location] || user.location
     user.email = params[:email] || user.email
-    user.password = params[:password] || user.password
-    user.password_confirmation = params[:password_confirmation] || user.password_confirmation
     render json: user
   end
 
