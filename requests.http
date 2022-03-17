@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDcwNDQzNzJ9.4kwbFtxOlWG_cbsMvGj-gcwOwncIUrJW7LNgHFwGi3M
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDcxMTU1Mjd9.R5H67eiXnjpi9153Lk1qkk-gTakBYYKrj3BpkVUsK8A
 @domain = http://localhost:3000
 
 ### Users Index
@@ -36,7 +36,7 @@ POST {{ domain }}/sessions
 Content-Type: application/json
 
 {
-  "email": "dale@gmail.com",
+  "email": "astengo93@gmail.com",
   "password": "password"
 }
 
@@ -84,10 +84,10 @@ Content-Type: application/json
 # Authorization: Bearer {{ jwt }}
 
 {
-  "customer_id": 2 ,
-  "blend": "87 E",
+  "customer_id": 3 ,
+  "blend": "87 C",
   "volume": 8500,
-  "day": "April 28th, 2022",
+  "day": "April 29th, 2022",
   "fulfilled": "false",
   "preferred_window": null
 }

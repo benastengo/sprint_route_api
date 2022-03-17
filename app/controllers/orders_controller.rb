@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
         blend: params[:blend],
         volume: params[:volume],
         day: params[:day],
-        fulfilled: params[:fulfilled],
+        fulfilled: false,
         preferred_window: params[:preferred_window]
       )
       if order.save
