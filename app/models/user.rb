@@ -4,4 +4,7 @@ class User < ApplicationRecord
   validates :tractor_number, presence: true, uniqueness: true
   validates :trailer_number, presence: true, uniqueness: true
   has_many :orders
+
+  geocoded_by :location
+  after_validation :geocode
 end
