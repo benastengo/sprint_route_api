@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDcxMTU1Mjd9.R5H67eiXnjpi9153Lk1qkk-gTakBYYKrj3BpkVUsK8A
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDc4ODQ3NTJ9.jYudOrlPNrzQrfVsFpd5Ag2DsoDDUsfTq_sVqIiduvo
 @domain = http://localhost:3000
 
 ### Users Index
@@ -36,7 +36,7 @@ POST {{ domain }}/sessions
 Content-Type: application/json
 
 {
-  "email": "astengo93@gmail.com",
+  "email": "dale@gmail.com",
   "password": "password"
 }
 
@@ -47,7 +47,7 @@ Authorization: Bearer {{ jwt }}
 Content-Type: application/json
 
 {
-  "first_name": "Ben"
+  "first_name": "Benjamin"
 }
 
 ### User Destroy

@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     user.trailer_number = params[:trailer_number] || user.trailer_number
     user.location = params[:location] || user.location
     user.email = params[:email] || user.email
+    user.save
     render json: user
   end
 
