@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     if current_user.manager
       users = User.all
       render json: users
+
     end
   end
 
@@ -50,3 +51,4 @@ class UsersController < ApplicationController
     render json: { message: "User destroyed successfully"}
   end
 end
+

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/orders" => "orders#index"
   post "/orders" => "orders#create"
+  patch "/orders/assignment" => "orders#assignment"
   patch "/orders/:id" => "orders#update"
   delete "/orders/:id" => "orders#destroy"
   

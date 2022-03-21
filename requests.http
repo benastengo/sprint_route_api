@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDc4ODQ3NTJ9.jYudOrlPNrzQrfVsFpd5Ag2DsoDDUsfTq_sVqIiduvo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NDc5NzIyOTh9.8ecQ5g5XW71DKZfW9M_G_AF_YNu7wuIcLmhv-1KrFTs
 @domain = http://localhost:3000
 
 ### Users Index
@@ -71,6 +71,15 @@ Authorization: Bearer {{ jwt }}
 {
   "name": "Kwik Star 1068",
   "address": "1704 Broad Street, Story City, Ia 50248"
+}
+
+### Assign Drivers to orders
+PATCH {{ domain }}/orders/assignment
+Authorization: Bearer {{ jwt }}
+Content-Type: application/json
+
+{
+  "user_ids": [2, 5, 10]
 }
 
 ### Orders Index
