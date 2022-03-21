@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     if current_user.manager
-      users = User.all
+      users = User.where(manager: false)
       render json: users
 
     end
